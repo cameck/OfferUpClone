@@ -32,31 +32,19 @@
 
 <h1>Offers Currently for Sale!</h1>
 
-<table>
 
-  <tbody>
-    <% @products.each do |product| %>
-    <tr>
-      <td><%= product.price_in_cents %></td>
-      <td><%= link_to 'Show', product %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 <% @products.each do |product| %>
 
 <% end %>
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+
 
 
 <div class="container-fluid">
 
 
-  
+
 
 <% @products.each_slice(4) do |product| %>
 <div class="row">

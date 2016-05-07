@@ -2,7 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def profile
-  
+   if !seller_signed_in?
+     redirect_to new_seller_registration_path
+   end
   end
 
   private
