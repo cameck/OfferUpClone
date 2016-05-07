@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offers Currently for Sale!</h1>
+
+<table>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.price_in_cents %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% @products.each do |product| %>
+<div class="card">
+  <img class="card-img-top" data-src="..." alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= product.name %></h4>
+    <p class="card-text"><%= product.description %></p>
+    <a href="<%= link_to 'Show', product %>" class="btn btn-primary">Button</a>
+  </div>
+</div>
+<% end %>
+<br>
+
+<%= link_to 'New Product', new_product_path %>
