@@ -23,20 +23,20 @@
         </ul>
 
         <ul class="nav navbar-nav pull-xs-right">
-          <div class="btn-group" role="group" aria-label="Sign In/Sign Up buttons">
+
             <% if seller_signed_in? %>
 
+            <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_seller.first_name %></a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="<%= profile_registration_path %>">Profile</a>
+    <%= link_to('Logout', destroy_seller_session_path, :method => :delete, class: "dropdown-item") %>
+  </div>
+</li>
 
-            <button type="button" class="btn btn-secondary">Left</button>
-            <button type="button" class="btn btn-secondary">Middle</button>
-            <button type="button" class="btn btn-secondary">Right</button>
-          </div>
-          <li class="nav-item">
-            <%= link_to('Logout', destroy_seller_session_path, :method => :delete) %>
-          </li>
           <% else %>
           <li class="nav-item">
-            <%= link_to('Login', new_seller_session_path)  %>
+            <%= link_to('Login', new_seller_session_path, class: "btn btn-success")  %>
           </li>
           <li class="nav-item">
             <%= link_to('Sign Up & Start Selling', new_seller_registration_path, class: "btn btn-primary")  %>

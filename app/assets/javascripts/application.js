@@ -16,3 +16,12 @@
 //= require_tree .
 //= require tether
 //= require bootstrap-sprockets
+
+
+$(document).ready(function(){
+  //Get chuck norris joke
+  $.get('http://api.icndb.com/jokes/random', function() {
+    joke = arguments[0].value.joke;
+    $('#profile-page .card-text').append("\"" + joke + "\"");
+  });
+});

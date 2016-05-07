@@ -1,0 +1,47 @@
+<div class="container" id="profile-page">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3">Seller Profile</h1>
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title"><%= current_seller.first_name %> <%= current_seller.last_name %></h4>
+          <p class="card-text"><!-- Chuck Noris Joke --></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Email:</strong> <%= current_seller.email %></li>
+          <li class="list-group-item"><strong>Member Since:</strong> <%= time_tag(current_seller.created_at) %></li>
+          <li class="list-group-item"><strong>Products: </strong><%= current_seller.products.count %></li>
+        </ul>
+        <div class="card-block">
+          <%= link_to "Edit Profile", edit_seller_registration_path, class: "card-link btn btn-warning" %>
+          <%= link_to('Logout', destroy_seller_session_path, :method => :delete, class: "card-link btn-danger btn") %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% current_seller.products.each_slice(4) do |product| %>
+  <div class="row">
+    <% product.each do |product| %>
+    <div class="col-md-3">
+      <div class="card">
+        <%= image_tag(product.photo.url(:medium), class: "card-img-top") %>
+
+        <div class="card-block">
+          <h4 class="card-title"><%= product.name %></h4>
+          <p class="card-text"><%= product.description %></p>
+          <%= link_to 'View', product,  class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+</div>

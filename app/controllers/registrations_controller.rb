@@ -2,8 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def profile
-  end
   
+  end
+
   private
     def sign_up_params
       params.require(:seller).permit(:first_name, :last_name, :email, :password, :password_confirmation)
