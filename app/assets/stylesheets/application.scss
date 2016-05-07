@@ -1,1 +1,34 @@
 @import "bootstrap";
+
+.container-fluid {
+  // padding: 0;
+}
+.card-img-top {
+  width: 100%;
+}
+
+.hero {
+	background: asset-url('los_angeles.jpeg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 90vh;
+	text-align: center;
+}
+
+
+.hero-heading {
+	color: #fff;
+	margin-top: 0;
+	font-size: 2em;
+	font-weight: 600;
+}
+.hero-heading h2 {
+  padding-top: 1.2em;
+}
+.hero-heading p {
+	font-weight: 400;
+	font-size: 1.7em;
+
+}

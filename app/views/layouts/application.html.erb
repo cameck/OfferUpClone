@@ -7,42 +7,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="#">OfferUPP</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
-      </li>
+  <div class="container-fluid">
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul>
-    <form class="form-inline pull-xs-right">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <input class="form-control" type="text" placeholder="Search">
-          <button class="btn btn-success-outline" type="submit">Search</button>
-        </li>
-      <% if seller_signed_in? %>
 
-        <li class="nav-item">
-          <%= link_to('Logout', destroy_seller_session_path, :method => :delete) %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to('Login', new_seller_session_path)  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to('Sign Up & Start Selling', new_seller_registration_path, class: "btn btn-primary")  %>
-        </li>
-        <% end %>
+    <nav class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+        &#9776;
+      </button>
+      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+        <a class="navbar-brand" href="<%= root_path %>">OfferUPP</a>
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">How it Works</a>
+          </li>
+        </ul>
 
-      </ul>
+        <ul class="nav navbar-nav pull-xs-right">
+          <div class="btn-group" role="group" aria-label="Sign In/Sign Up buttons">
+            <% if seller_signed_in? %>
 
-    </form>
-  </nav>
-  <%= yield %>
 
-</body>
-</html>
+            <button type="button" class="btn btn-secondary">Left</button>
+            <button type="button" class="btn btn-secondary">Middle</button>
+            <button type="button" class="btn btn-secondary">Right</button>
+          </div>
+          <li class="nav-item">
+            <%= link_to('Logout', destroy_seller_session_path, :method => :delete) %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to('Login', new_seller_session_path)  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Sign Up & Start Selling', new_seller_registration_path, class: "btn btn-primary")  %>
+          </li>
+          <% end %>
+
+        </ul>
+
+
+      </nav>
+    </div>
+    <%= yield %>
+
+  </body>
+  </html>

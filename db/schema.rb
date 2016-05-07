@@ -11,15 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506184610) do
+ActiveRecord::Schema.define(version: 20160507160435) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "price_in_cents"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "seller_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
+
+  add_index "products", ["seller_id"], name: "index_products_on_seller_id"
 
   create_table "sellers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

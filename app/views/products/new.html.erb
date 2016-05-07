@@ -1,5 +1,10 @@
 <h1>New Product</h1>
+<% if seller_signed_in? %>
+  <%= render 'form' %>
+<% else %>
+  <h3>Sign up to start selling today!</h3>
+  <%= link_to('Login', new_seller_session_path, class: "btn btn-primary")  %>
+  <%= link_to('Sign Up & Start Selling', new_seller_registration_path, class: "btn btn-primary")  %>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', root_path %>
