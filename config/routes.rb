@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :products
+  get 'how_it_works' => 'products#how_it_works', as: 'how_it_works'
   # devise_for :sellers
   devise_for :sellers, :controllers => { registrations: 'registrations' }
 
   devise_scope :seller do
-    # get "users/sign_up2"=> "users/registrations#sign_up2", :as => "sign_up2_registration"
+
     get '/profile' => 'registrations#profile', :as => 'profile_registration'
   end
 
